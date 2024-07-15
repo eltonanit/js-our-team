@@ -35,8 +35,21 @@ const team = [
     }
 ];
 
-// MILESTONE 1: Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
+// MILESTONE 1: Stampare su console, dati di ogni membri del team
 team.forEach(member => {
     console.log(`Nome: ${member.nome}, Ruolo: ${member.ruolo}, Foto: ${member.foto}`);
 });
 
+// MILESTONE 2: Mostrare le informazioni sul DOM 
+const teamContainer = document.getElementById('team');
+
+team.forEach(member => {
+    const members = document.createElement('div');
+    members.classList.add('team-member');
+    members.innerHTML = `
+        <h2>${member.nome}</h2>
+        <p>Ruolo: ${member.ruolo}</p>
+        <img src="${member.foto}" alt="${member.nome}" style="width: 200px;">
+    `;
+    teamContainer.appendChild(members);
+});
